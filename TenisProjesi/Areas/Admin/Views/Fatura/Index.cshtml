@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TenisProjesi.Fatura>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kiralamaBaslangic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kiralamaBitis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.faturaOdemeTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_deleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_Kiralama.Id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kiralamaBaslangic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kiralamaBitis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.faturaOdemeTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_deleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User_Kiralama.Id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,146 @@
+﻿
+
+@{
+    ViewBag.Title = "Kortlar";
+}
+
+<div class="well well-sm" align="center">
+    <h3><strong>Kortlar</strong></h3>
+</div>
+
+<article class="col-xs-9 col-sm-6 col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a href="#" title="Kort 1" class="zoom" data-title="Amazing Nature" data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
+                <img src="~/İmages/CimSaha_452x640.jpg" alt="Kort 1" />
+            </a>
+        </div>
+        <div class="panel-footer">
+            <table class="table table-bordered table-dark" width="100">
+                <tbody>
+                    @for (int i = 0; i < ViewBag.saat2.Length; i++)
+                    {
+                        if (ViewBag.saat2[i].kortId == 2)
+                        {
+                            <tr width="10">
+                                @if (ViewBag.saat2[i].enable == false)
+                                {
+                            <td><a class="disabled">@ViewBag.saat2[i].baslangicSaati</a></td>
+
+                                }
+                                else if (ViewBag.saat2[i].enable == true)
+                                {
+                                    
+                            <td>@Html.ActionLink((string)ViewBag.saat2[i].baslangicSaati, "Kirala", new { id = ViewBag.saat2[i].Id }) </td>
+                                }
+                                @if ((i + 1) != ViewBag.saat2.Length)
+                                {
+                                    if (ViewBag.saat2[i + 1].enable == false)
+                                    {
+                                <td><a class="disabled">@ViewBag.saat2[i + 1].baslangicSaati</a></td>
+
+                                    }
+
+                                    else if (ViewBag.saat2[i + 1].enable == true)
+                                    {
+                                <td>@Html.ActionLink((string)ViewBag.saat2[i + 1].baslangicSaati, "Kirala", new { id = ViewBag.saat2[i + 1].Id }) </td>
+                                    }
+                                    i += 1;
+                                }
+                                
+                            </tr>
+
+
+                        }
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+       
+    </div>
+</article>
+
+<article class="col-xs-9 accordion col-sm-6 col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a href="#" title="Kort 2" class="zoom" data-title="Amazing Nature" data-footer="The beauty of nature" data-type="image" data-toggle="lightbox">
+                <img src="~/İmages/ToprakKort.jpg" alt="Kort 1" />
+            </a>
+        </div>
+        <div class="panel-footer">
+            <table class="table table-bordered table-dark" width="100">
+                <tbody>
+                    @for (int i = 0; i < ViewBag.saat1.Length; i++)
+                    {
+                        if (ViewBag.saat1[i].kortId == 1)
+                        {
+                            <tr width="10">
+                                @if (ViewBag.saat1[i].enable == false)
+                                {
+                            <td><a class="disabled">@ViewBag.saat1[i].baslangicSaati</a></td>
+
+                                }
+                                else if (ViewBag.saat1[i].enable == true)
+                                {
+                                    
+                            <td>@Html.ActionLink((string)ViewBag.saat1[i].baslangicSaati, "Kirala", new { id = ViewBag.saat1[i].Id }) </td>
+                                }
+                                @if ((i + 1) != ViewBag.saat1.Length)
+                                {
+                                    if (ViewBag.saat1[i + 1].enable == false)
+                                    {
+                                <td><a class="disabled">@ViewBag.saat1[i + 1].baslangicSaati</a></td>
+
+                                    }
+
+                                    else if (ViewBag.saat1[i + 1].enable == true)
+                                    {
+                                <td>@Html.ActionLink((string)ViewBag.saat1[i + 1].baslangicSaati, "Kirala", new { id = ViewBag.saat1[i + 1].Id }) </td>
+                                    }
+                                    i += 1;
+                                }
+                                
+                            </tr>
+
+
+                        }
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</article>
+
+@*
+    <article class="col-xs-12 col-sm-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="#" title="Kort 2" class="zoom" data-title="Delicious Food" data-footer="Whatever your desire" data-type="image" data-toggle="lightbox">
+                    <img src="http://placehold.it/470x480&text=2" alt="Kort 2" />
+                    <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                </a>
+            </div>
+            <div class="panel-footer">
+                <h4><a href="#" title="Kort 2">Kort 2</a></h4>
+            </div>
+        </div>
+    </article>
+    <article class="col-xs-12 col-sm-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="#" title="Kort 3" class="zoom" data-title="Radical Sports" data-footer="This are the best moments" data-type="image" data-toggle="lightbox">
+                    <img src="http://placehold.it/470x480&text=3" alt="Kort 3" />
+                    <span class="overlay"><i class="glyphicon glyphicon-fullscreen"></i></span>
+                </a>
+            </div>
+            <div class="panel-footer">
+                <h4><a href="#" title="Kort 3" title="Sports">Kort 3</a></h4>
+
+            </div>
+        </div>
+    </article>
+    <div class="col-md-3"></div>*@

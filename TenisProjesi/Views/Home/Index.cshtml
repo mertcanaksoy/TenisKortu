@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<script src="~/Content/Template/js/jquery-1.8.3.min.js"></script>
+<script src="~/Content/Template/js/jquery.js"></script>
+<script src="~/Content/Template/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#date").datepicker({
+            minDate: 0
+        });
+
+    });
+
+</script>
+<!--Anasayfadaki tarih-saat sayacı-->
+<div id="time" style="color:black; font-size:24pt"></div>
+
+<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+<div class="bootstrap-iso">
+    <div class="col-md-4"></div>
+    <label class="control-label " for="date">
+        Randevu İçin Bir Tarih Seçiniz
+    </label>
+    <hr />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-8">
+
+            </div>
+            @using (Html.BeginForm())
+            {
+                <div class="col-md-4 col-sm-4 col-xs-8">
+
+
+                    <div class="form-group form-group-md">
+
+                        <div class="input-group date" id="datetimepicker">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar">
+                                </i>
+                            </div>
+                            <input class="form-control date" id="date"  name="date" placeholder="Gün/Ay/Yıl" type="text" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button class="btn btn-success " name="submit" type="submit">
+                            Listele
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

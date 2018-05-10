@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TenisProjesi.Fatura>
+
+@{
+    ViewBag.Title = "Faturalandirma";
+}
+
+<h2>Faturalandirma</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kiralamaBaslangic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kiralamaBitis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.faturaOdemeTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_deleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_Kiralama.Id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kiralamaBaslangic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kiralamaBitis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.faturaOdemeTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_deleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User_Kiralama.Id)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "Urunler";
+}
+<div class="well well-sm">
+    <h3><strong>Ürünlerimiz</strong></h3>
+</div>
+
+<script src="~/Content/Template/js/jquery-1.8.3.min.js"></script>
+<script>
+    $(document).ready(function sepeteEkle() {
+        $(".adtocart").click(function sepeteEkle() {
+            var uid = $(this).attr("name");
+            $.ajax({
+                type: "GET",
+                url: "/Home/SepeteEkle",
+                data:{id:uid},
+                success: function sepeteEkle() {
+                    alert("Ürün sepete eklendi.")
+                },
+                error: function sepeteEkle() {
+                    alert("Hata: Ürün sepete eklenemedi.")
+                },
+            });
+        });
+    });
+    $(document).ready(function dbEkle() {
+        $(".adtocart").click(function dbEkle() {
+            var uid = $(this).attr("name");
+            $.ajax({
+                type: "GET",
+                url: "/Home/dbEkle/",
+                data: { id: uid }
+            });
+        });
+    });
+</script>
+<div class="row product-list">
+
+    <div class="col-md-4">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="/Content/Template/img/product-list/ayakkabi.jpg" alt="" />
+                <a href="#" class="adtocart" style="background-color:green" name="1">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Ayakkabı
+                    </a>
+                </h4>
+                <p class="price">180.00 ₺</p>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-md-4">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="/Content/Template/img/product-list/sapka.jpg" alt="" />
+                <a href="#" class="adtocart" style="background-color:green" name="2">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Şapka
+                    </a>
+                </h4>
+                <p class="price">40.00 ₺</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="/Content/Template/img/product-list/raket.jpg" alt="" />
+                <a href="#" class="adtocart" style="background-color:green" name="3">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Raket
+                    </a>
+                </h4>
+                <p class="price">80.00 ₺</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="/Content/Template/img/product-list/top.jpg" alt="" />
+                <a href="#" class="adtocart" style="background-color:green" name="4">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Tenis Topu
+                    </a>
+                </h4>
+                <p class="price">20.00 ₺</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="/Content/Template/img/product-list/tisort.jpg" alt="" />
+                <a href="#" class="adtocart" style="background-color:green" name="5">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Tişört
+                    </a>
+                </h4>
+                <p class="price">50.00 ₺</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section class="panel">
+            <div class="pro-img-box">
+                <img src="/Content/Template/img/product-list/bandana.jpg" alt="" />
+                <a href="#" class="adtocart" style="background-color:green" name="6">
+                    <i class="icon-shopping-cart"></i>
+                </a>
+            </div>
+            <div class="panel-body text-center">
+                <h4>
+                    <a href="#" class="pro-title">
+                        Bandana
+                    </a>
+                </h4>
+                <p class="price">30.00 ₺</p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-10"></div>
+    <div class="form-group">
+            <a href="@Url.Action("Sepetim", "Home")" class="btn btn-success btn-lg">
+                Sepete Git
+            </a>
+    </div>
+</div>

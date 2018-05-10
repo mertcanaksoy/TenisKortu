@@ -1,0 +1,101 @@
+﻿@using TenisProjesi.App_Class;
+@{
+    ViewBag.Title = "Sepetim";
+}
+@model TenisProjesi.App_Class.Sepet
+
+@using (Html.BeginForm("", "Home", FormMethod.Post))
+{ 
+<div class="content">
+    <div class="container">
+        <h1>sepet</h1>
+
+        <div class="shopping-cart">
+            <div class="shopping-cart-products">
+                <ul class="shopping-product-detail">
+                    <li class="shopping-1">urunadi</li>
+                    <li class="shopping-2">adet</li>
+                    <li class="shopping-3">birimfiyat</li>
+                    <li class="shopping-4">toplam</li>
+                </ul>
+
+
+                @if (Model != null)
+                {
+                    foreach (var item in Model.Urunler)
+                    {
+                        <ul class="shopping-product-detail">
+                            <li class="shopping-1">
+                                <a href="/Home/UrunDetay/@item.urun.Id">@item.urun.urunAdi</a>
+                            </li>
+
+                            <li class="shopping-2">
+                                <input type="number" name="Adet" value="@item.Adet" title="Adet" class="input-text qty text">
+                            </li>
+                            <li class="shopping-3">
+                                @String.Format("{0:N2}", @item.urun.urunFiyat) TL
+                            </li>
+                            <li class="shopping-4">
+                                @String.Format("{0:N2}", @item.Tutar) TL
+                                <button>sil</button>
+                            </li>
+                        </ul>
+                    }
+
+                }
+                else
+                {
+                    <br />
+                    <span style="color:red">&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;Sepetinizde urun yok</span>
+                    <br /><br />
+                }
+
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="@Url.Action("Urunler", "Home")" class="btn btn-default">
+                        Alış Verişe Devam Et
+                    </a>
+                </div>
+                <div class="col-md-5">
+                </div>
+                <div class="col-md-4">
+                    <div class="checkout-total">
+                        <p>
+                            aratoplam :
+                            @if (Model != null)
+                            {
+                                @String.Format("{0:N2}", @Model.GenelToplam)
+                            }
+                            else
+                            {
+                                <span>0</span>
+                            }
+                            <span> TL</span>
+                        </p>
+                        @if (Model != null)
+                        {
+                            decimal altToplam = Model.GenelToplam;
+                            decimal kargoUcreti = 10.00M;
+                            decimal genelToplam = altToplam + kargoUcreti;
+
+                            <p>kargoucreti : @kargoUcreti TL</p>
+                            <hr />
+                            <p>
+                                geneltoplam : @String.Format("{0:N2}", genelToplam)
+                            </p>
+                            <a href="@Url.Action("Faturalandirma", "Home")" class="btn btn-success">
+                                Satın Al
+                            </a>
+ }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
